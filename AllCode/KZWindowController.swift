@@ -19,8 +19,8 @@ class KZWindowController: NSWindowController {
     
     lazy var myWindow: NSWindow? = {
         let frame: CGRect = CGRect(x: 0, y: 0, width: 400, height: 280)
-        let style: NSWindowStyleMask = [.titled,.closable,.resizable]
-        let back: NSBackingStoreType = .buffered
+        let style: NSWindow.StyleMask = [.titled,.closable,.resizable]
+        let back: NSWindow.BackingStoreType = .buffered
         let window: KZWindow = KZWindow(contentRect: frame, styleMask: style, backing: back, defer: false)
 //        window.isResizable = false
         window.title = "Test Window"

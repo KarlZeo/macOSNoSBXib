@@ -29,7 +29,7 @@ func mainMenu() -> NSMenu {
     appMenu.addItem(withTitle: "Hide", action: #selector(NSApplication.hide(_:)), keyEquivalent: "h")
     appMenu.addItem({ ()->NSMenuItem in
         let m = NSMenuItem(title: "Hide Others", action: #selector(NSApplication.hideOtherApplications(_:)), keyEquivalent: "h")
-        m.keyEquivalentModifierMask = NSEventModifierFlags([.command, .option])
+        m.keyEquivalentModifierMask = NSEvent.ModifierFlags([.command, .option])
         return m
         }())
     appMenu.addItem(withTitle: "Show All", action: #selector(NSApplication.unhideAllApplications(_:)), keyEquivalent: "")
@@ -47,7 +47,7 @@ func mainMenu() -> NSMenu {
 }
 
 autoreleasepool {
-    let app =   NSApplication.shared() //创建应用
+    let app =   NSApplication.shared //创建应用
     let delegate = AppDelegate()
     app.delegate =  delegate //配置应用代理
     app.mainMenu = mainMenu() //配置菜单，mainMenu 函数需要前向定义，否则编译错误
